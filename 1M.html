@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+  <meta charset="UTF-8">
+  <title>1 M</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+      font-family: "Sarabun", sans-serif;
+      color: #fff;
+      text-align: center;
+      overflow: hidden;
+      position: relative;
+    }
+    h1 { font-size: 3em; margin: 0; }
+    h2 { font-size: 1.5em; margin: 10px 0; }
+    .hearts {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .heart {
+      position: absolute;
+      color: #fff;
+      font-size: 24px;
+      animation: float 5s linear infinite;
+    }
+    @keyframes float {
+      0% { transform: translateY(100vh) scale(1); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
+    }
+
+    /* ตัวอักษรดิ้น */
+    .wiggle {
+      display: inline-block;
+      animation: wiggle 0.5s ease-in-out infinite;
+    }
+    @keyframes wiggle {
+      0% { transform: rotate(0deg); }
+      25% { transform: rotate(5deg); }
+      50% { transform: rotate(0deg); }
+      75% { transform: rotate(-5deg); }
+      100% { transform: rotate(0deg); }
+    }
+  </style>
+</head>
+
+  <!-- ข้อความดิ้น -->
+  <h1 class="wiggle">1 M แล้ววววว เย้ 💝</h1>
+
+  <div class="hearts" id="hearts"></div>
+
+<body>
+  <h2>สุขสันต์วันครบครอบ 1 เดือนนะครับ</h2>
+  <h2>แปปๆก็ 1 เดือนแล้ววววว</h2>
+  <h2>ตอนไหนช่วงไหนที่เค้าทำตัวไม่น่ารัก เค้าขอโทษนะค้าบบ</h2>
+  <h2>ขอบคุณที่เข้ามาเป็นแสงไฟให้</h2>
+  <h2>ยังไงก็อยู่กับเค้าไปนานๆนะ</h2>
+  <h2>ยังมีของอร่อยๆที่ต้องไปกินกันอีกเยออะเลยย</h2>
+  <h2>💗</h2>
+  <h2>อ้ายฮักตัวเน้อออ</h2>
+
+  <script>
+    function createHeart() {
+      const heart = document.createElement("div");
+      heart.className = "heart";
+      heart.style.left = Math.random() * 100 + "vw";
+      heart.style.animationDuration = (3 + Math.random() * 2) + "s";
+      heart.innerHTML = "💖";
+      document.getElementById("hearts").appendChild(heart);
+      setTimeout(() => heart.remove(), 5000);
+    }
+    setInterval(createHeart, 500);
+  </script>
+</body>
+</html>
